@@ -3,11 +3,7 @@ import SearchBar from './components/SearchBar';
 import axios from 'axios';
 import './App.css';
 import NavBar from './components/NavBar';
-import Category from './components/Category';
-import FilterMeal from './components/FilterMeal';
-import SelectMeal from './components/SelectMeal';
-import AboutUs from './components/AboutUs';
-import ContactUs from './components/ContactUs';
+
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -78,13 +74,6 @@ function App() {
       <h1>E-RECIPE</h1>
       <NavBar/>
       <SearchBar searchedMeal={searchedMeal} setSearchedMeal={setSearchedMeal}  />
-      <Category setSelectedCategory={setSelectedCategory} categories={categories} />
-      <FilterMeal meals={meals} handleMealClick={handleMealClick} />
-      <div ref={instructionsRef}>
-        <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
-      </div>
-      <AboutUs />
-      <ContactUs />
     </div>
   );
 }
