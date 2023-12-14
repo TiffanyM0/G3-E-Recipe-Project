@@ -38,3 +38,9 @@ function Reviews({ onSubmitFeedback }) {
             placeholder="How was your experience using the E-Recipe site..."
             rows={4}
           />
+            </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+}
