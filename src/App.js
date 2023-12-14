@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 import Category from './components/Category';
@@ -35,13 +35,14 @@ function App() {
   const handleCloseDetails = () => {
     setSelectedMeal(null);
   };
+  const instructionsRef = useRef(null);
 
   return (
     <div className="App">
       <h1>E-RECIPE</h1>
       <Category setSelectedCategory={setSelectedCategory} categories={categories} />
-      <div >
-        <SelectMeal />
+      <div ref={instructionsRef}>
+        <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
       </div>
     </div>
   );
