@@ -12,7 +12,6 @@ function App() {
   const [selectedMeal, setSelectedMeal] = useState(null);
 
   useEffect(() => {
-    // Fetch meal categories
     axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then(response => {
         setCategories(response.data.categories);
@@ -23,7 +22,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Fetch meals based on the selected category
     if (selectedCategory) {
       axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
         .then(response => {

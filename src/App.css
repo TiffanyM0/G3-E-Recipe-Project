@@ -1,39 +1,62 @@
-.App{ 
-  min-height: 100vh; 
-  background-image: linear-gradient(15deg, #13547a 0%, #f70968 100%); 
-  } 
-  .search-form{ 
-  min-height: 10vh; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  } 
-  .search-bar{ 
-  width: 50%; 
-  border:none; 
-  padding: 10px; 
-  border-radius: 5px; 
-  box-shadow: 5px 10px #979b91; 
-  } 
-  .search-button{ 
-  background: #2cf708; 
-  border: 5px solid rgb(156, 244, 163); 
-  border-radius: 8px; 
-  padding: 10px 20px; 
-  color: white; 
-  font-size: larger; 
-  margin: 0 0 0 10px; 
-  } 
-  .search-button:hover { 
-  background-color:#fa709a ; 
-  } 
-  .recipes{ 
-  display: flex; 
-  justify-content: space-around; 
-  flex-wrap: wrap; 
-  } 
+.App {
+  text-align: center;
+  overflow-x: auto; 
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  background-image: url("./images/pandk.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Make the background image fixed */
+  color: #211c1c;
+  font-size: large;
+}
 
-html{
-    scroll-behavior: smooth;
-} 
-  
+
+
+.category {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.category button {
+  margin: 1px; 
+}
+
+.meals-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.meal-item {
+  margin: 10px;
+}
+
+.meals-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.meal-item {
+  width: 22%; 
+  margin: 10px; 
+  text-align: center;
+}
+
+.meal-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+}
+
+.meal-item p {
+  max-height: 60px; /* Set a maximum height for the text container */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  margin-top: 5px;
+}
+
