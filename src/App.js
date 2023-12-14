@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Category from './components/Category';
 import SelectMeal from './components/SelectMeal';
+import FilterMeal from './components/FilterMeal';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
       <div ref={instructionsRef}>
         <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
       </div>
+      <FilterMeal />
     </div>
   );
 }
