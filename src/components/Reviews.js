@@ -7,3 +7,5 @@ function Reviews({ onSubmitFeedback }) {
   const handleFeedbackChange = (event) => {
     setFeedbackText(event.target.value);
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
