@@ -4,13 +4,15 @@ import './App.css';
 import Category from './components/Category';
 import SelectMeal from './components/SelectMeal';
 
+
 function App() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedMeal, setSelectedMeal] = useState(null);
   const [meals, setMeals] = useState([]);
+  const [selectedMeal, setSelectedMeal] = useState(null);
 
   useEffect(() => {
+    // Fetch meal categories
     axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then(response => {
         setCategories(response.data.categories);
@@ -21,6 +23,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    // Fetch meals based on the selected category
     if (selectedCategory) {
       axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
         .then(response => {
@@ -32,15 +35,30 @@ function App() {
     }
   }, [selectedCategory]);
 
+  const instructionsRef = useRef(null);
+
+  const handleMealClick = (meal) => {
+    axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
+      .then(response => {
+        const fullMealDetails = response.data.meals[0];
+        setSelectedMeal(fullMealDetails);
+        if (instructionsRef.current) {
+          instructionsRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching full meal details:', error);
+      });
+  };
+
   const handleCloseDetails = () => {
     setSelectedMeal(null);
   };
-  const instructionsRef = useRef(null);
 
   return (
     <div className="App">
       <h1>E-RECIPE</h1>
-      <Category setSelectedCategory={setSelectedCategory} categories={categories} />
+      <Category setSelectedCategory={setSelectedCategory} categories={categories} handleMealClick={handleMealClick}/>
       <div ref={instructionsRef}>
         <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
       </div>

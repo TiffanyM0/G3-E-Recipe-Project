@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default function Category({ setSelectedCategory, categories }) {
+export default function Category({ setSelectedCategory, categories, handleMealClick }) {
   function handleClick(category) {
     setSelectedCategory(category);
+    handleMealClick(category)
   }
 
   return (
