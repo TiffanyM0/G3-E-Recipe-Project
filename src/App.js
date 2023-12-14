@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 import Category from './components/Category';
-import SelectMeal from './components/SelectMeal';
 import FilterMeal from './components/FilterMeal';
+import SelectMeal from './components/SelectMeal';
 
 
 function App() {
@@ -58,10 +58,10 @@ function App() {
     <div className="App">
       <h1>E-RECIPE</h1>
       <Category setSelectedCategory={setSelectedCategory} categories={categories} handleMealClick={handleMealClick}/>
+      <FilterMeal meals={meals} handleMealClick={handleMealClick}/>
       <div ref={instructionsRef}>
         <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
       </div>
-      <FilterMeal meals={meals} handleMealClick={handleMealClick}/>
     </div>
   );
 }
