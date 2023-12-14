@@ -25,3 +25,16 @@ function Reviews({ onSubmitFeedback }) {
         console.error("Error posting feedback:", error);
       });
   };
+  return (
+    <div className="feedback-form">
+      <h2>Feedback</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="feedback">Feedback:</label>
+          <textarea
+            id="feedback"
+            value={feedbackText}
+            onChange={handleFeedbackChange}
+            placeholder="How was your experience using the E-Recipe site..."
+            rows={4}
+          />
