@@ -61,7 +61,7 @@ function App() {
       <div ref={instructionsRef}>
         <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
       </div>
-      <FilterMeal />
+      <FilterMeal meals={meals}/>
     </div>
   );
 }
