@@ -44,3 +44,4 @@ function Reviews({ onSubmitFeedback }) {
     </div>
   );
 }
+export default Reviews;
