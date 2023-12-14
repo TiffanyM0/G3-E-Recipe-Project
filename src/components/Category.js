@@ -12,7 +12,8 @@ export default function Category({ setSelectedCategory, categories }) {
         {categories.map(category => (
           <div key={category.strCategory}>
             <button onClick={() => handleClick(category.strCategory)}>
-              
+              <img src={category.strCategoryThumb} alt={category.strCategory} />
+              {category.strCategory}
             </button>
           </div>
         ))}

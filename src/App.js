@@ -1,23 +1,48 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
+import Category from './components/Category';
+import SelectMeal from './components/SelectMeal';
 
 function App() {
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedMeal, setSelectedMeal] = useState(null);
+  const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
+      .then(response => {
+        setCategories(response.data.categories);
+      })
+      .catch(error => {
+        console.error('Error fetching categories:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
+        .then(response => {
+          setMeals(response.data.meals);
+        })
+        .catch(error => {
+          console.error('Error fetching meals:', error);
+        });
+    }
+  }, [selectedCategory]);
+
+  const handleCloseDetails = () => {
+    setSelectedMeal(null);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>E-RECIPE</h1>
+      <Category setSelectedCategory={setSelectedCategory} categories={categories} />
+      <div >
+        <SelectMeal />
+      </div>
     </div>
   );
 }
