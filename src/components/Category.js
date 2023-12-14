@@ -1,9 +1,7 @@
 import React from 'react';
 
-export default function Category({ setSelectedCategory, categories }) {
-  function handleClick(category) {
-    setSelectedCategory(category);
-  }
+export default function Category({ categories }) {
+  
 
   return (
     <div>
@@ -11,9 +9,8 @@ export default function Category({ setSelectedCategory, categories }) {
       <div className="category">
         {categories.map(category => (
           <div key={category.strCategory}>
-            <button onClick={() => handleClick(category.strCategory)}>
-              <img src={category.strCategoryThumb} alt={category.strCategory} />
-              {category.strCategory}
+            <button>
+                button
             </button>
           </div>
         ))}
