@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SearchBar from './components/SearchBar';
+ mwaisaka
 import axios from 'axios';
 import './App.css';
+import SearchBar from './components/SearchBar';
 import NavBar from './components/NavBar';
+import Category from './components/Category';
+import FilterMeal from './components/FilterMeal';
+import SelectMeal from './components/SelectMeal';
 
 
 function App() {
@@ -11,9 +15,9 @@ function App() {
   const [meals, setMeals] = useState([]);
   const [searchedMeal, setSearchedMeal] = useState('');
   const [selectedMeal, setSelectedMeal] = useState(null);
+  const [selectedMeal, setSelectedMeal] = useState(null);
 
   useEffect(() => {
-    // Fetch meal categories
     axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then(response => {
         setCategories(response.data.categories);
@@ -24,8 +28,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Fetch meals based on the selected category
-    if (selectedCategory) {
+     if (selectedCategory) {
       axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
         .then(response => {
           setMeals(response.data.meals);
@@ -36,7 +39,7 @@ function App() {
     }
   }, [selectedCategory]);
 
-  useEffect(() => {
+useEffect(() => {
     // Search meals by name
     if (searchedMeal) {
       axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchedMeal}`)
@@ -49,7 +52,7 @@ function App() {
     }
   }, [searchedMeal]);
 
-  const instructionsRef = useRef(null);
+const instructionsRef = useRef(null);
 
   const handleMealClick = (meal) => {
     axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
@@ -74,6 +77,11 @@ function App() {
       <h1>E-RECIPE</h1>
       <NavBar/>
       <SearchBar searchedMeal={searchedMeal} setSearchedMeal={setSearchedMeal}  />
+      <Category setSelectedCategory={setSelectedCategory} categories={categories} handleMealClick={handleMealClick}/>
+      <FilterMeal meals={meals} handleMealClick={handleMealClick}/>
+      <div ref={instructionsRef}>
+        <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
+      </div>
     </div>
   );
 }
