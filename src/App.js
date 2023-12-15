@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+ mwaisaka
 import axios from 'axios';
 import './App.css';
+import SearchBar from './components/SearchBar';
+import NavBar from './components/NavBar';
 import Category from './components/Category';
 import FilterMeal from './components/FilterMeal';
 import SelectMeal from './components/SelectMeal';
@@ -10,6 +13,8 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [meals, setMeals] = useState([]);
+  const [searchedMeal, setSearchedMeal] = useState('');
+  const [selectedMeal, setSelectedMeal] = useState(null);
   const [selectedMeal, setSelectedMeal] = useState(null);
 
   useEffect(() => {
@@ -23,7 +28,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (selectedCategory) {
+     if (selectedCategory) {
       axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
         .then(response => {
           setMeals(response.data.meals);
@@ -34,7 +39,20 @@ function App() {
     }
   }, [selectedCategory]);
 
-  const instructionsRef = useRef(null);
+useEffect(() => {
+    // Search meals by name
+    if (searchedMeal) {
+      axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchedMeal}`)
+        .then(response => {
+          setMeals(response.data.meals);
+        })
+        .catch(error => {
+          console.error('Error searching meals:', error);
+        });
+    }
+  }, [searchedMeal]);
+
+const instructionsRef = useRef(null);
 
   const handleMealClick = (meal) => {
     axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
@@ -57,6 +75,8 @@ function App() {
   return (
     <div className="App">
       <h1>E-RECIPE</h1>
+      <NavBar/>
+      <SearchBar searchedMeal={searchedMeal} setSearchedMeal={setSearchedMeal}  />
       <Category setSelectedCategory={setSelectedCategory} categories={categories} handleMealClick={handleMealClick}/>
       <FilterMeal meals={meals} handleMealClick={handleMealClick}/>
       <div ref={instructionsRef}>
