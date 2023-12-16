@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
- mwaisaka
 import axios from 'axios';
 import './App.css';
 import SearchBar from './components/SearchBar';
@@ -7,6 +6,8 @@ import NavBar from './components/NavBar';
 import Category from './components/Category';
 import FilterMeal from './components/FilterMeal';
 import SelectMeal from './components/SelectMeal';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   const [meals, setMeals] = useState([]);
   const [searchedMeal, setSearchedMeal] = useState('');
   const [selectedMeal, setSelectedMeal] = useState(null);
-  const [selectedMeal, setSelectedMeal] = useState(null);
+
 
   useEffect(() => {
     axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -28,6 +29,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+
      if (selectedCategory) {
       axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
         .then(response => {
@@ -38,6 +40,7 @@ function App() {
         });
     }
   }, [selectedCategory]);
+
 
 useEffect(() => {
     // Search meals by name
@@ -75,13 +78,16 @@ const instructionsRef = useRef(null);
   return (
     <div className="App">
       <h1>E-RECIPE</h1>
+    
       <NavBar/>
       <SearchBar searchedMeal={searchedMeal} setSearchedMeal={setSearchedMeal}  />
       <Category setSelectedCategory={setSelectedCategory} categories={categories} handleMealClick={handleMealClick}/>
       <FilterMeal meals={meals} handleMealClick={handleMealClick}/>
       <div ref={instructionsRef}>
         <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
-      </div>
+      </div> 
+      <AboutUs />
+      <ContactUs />
     </div>
   );
 }
