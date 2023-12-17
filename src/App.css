@@ -12,8 +12,6 @@
   height: 100vh; /* Set container height to 100% of viewport height */
 }
 
-
-
 .category {
   display: flex;
   flex-direction: row;
@@ -31,7 +29,11 @@
 }
 
 .meal-item {
-  margin: 10px;
+  width: 22%; 
+  margin: 10px; 
+  text-align: center;
+  background-color: beige;
+  border-radius: 15px;
 }
 
 .meals-container {
@@ -40,16 +42,15 @@
   justify-content: space-evenly;
 }
 
-.meal-item {
-  width: 22%; 
-  margin: 10px; 
-  text-align: center;
-}
-
 .meal-item img {
   max-width: 100%;
   height: auto;
   border-radius: 8px; /*Add border-radius for rounded corners */
+}
+
+.meal-details img{
+  width: 30%;
+  height: 30%;
 }
 
 .meal-item p {
@@ -94,4 +95,8 @@ textarea {
   resize: auto;
   height: 150px;
   width: 500px;
+}
+
+.list {
+  list-style: none; 
 }
