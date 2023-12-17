@@ -1,14 +1,16 @@
-import React from 'react';
 
-export default function Category({ setSelectedCategory, categories, handleMealClick }) {
+import React, { forwardRef } from "react";
+
+const Category = forwardRef(({ setSelectedCategory, categories }, ref) => {
+// export default function Category({ setSelectedCategory, categories }) {
   function handleClick(category) {
     setSelectedCategory(category);
-    handleMealClick(category)
+    // No need for categoryRef here
   }
 
   return (
     <div>
-      <h2>Category</h2>
+      <h2>Meal Categories</h2>
       <div className="category">
         {categories.map(category => (
           <div key={category.strCategory}>
@@ -21,5 +23,8 @@ export default function Category({ setSelectedCategory, categories, handleMealCl
       </div>
     </div>
   );
-}
+});
+
+export default Category;
+
 
