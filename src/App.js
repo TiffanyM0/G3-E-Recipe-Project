@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +8,19 @@ import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Reviews from "./components/Reviews";
+=======
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+import './App.css';
+import SearchBar from './components/SearchBar';
+import NavBar from './components/NavBar';
+import Category from './components/Category';
+import FilterMeal from './components/FilterMeal';
+import SelectMeal from './components/SelectMeal';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
+>>>>>>> 32c52e53c4cde5a51512ad553748bc9d155fdc8e
+
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -16,10 +30,16 @@ function App() {
   const [selectedMeal, setSelectedMeal] = useState(null);
   const [feedbacks, setFeedbacks] = useState([]);
 
+
   useEffect(() => {
+<<<<<<< HEAD
     axios
       .get("https://www.themealdb.com/api/json/v1/1/categories.php")
       .then((response) => {
+=======
+    axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
+      .then(response => {
+>>>>>>> 32c52e53c4cde5a51512ad553748bc9d155fdc8e
         setCategories(response.data.categories);
       })
       .catch((error) => {
@@ -28,10 +48,17 @@ function App() {
   }, []);
 
   useEffect(() => {
+<<<<<<< HEAD
     if (selectedCategory) {
       axios
         .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
         .then((response) => {
+=======
+
+     if (selectedCategory) {
+      axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
+        .then(response => {
+>>>>>>> 32c52e53c4cde5a51512ad553748bc9d155fdc8e
           setMeals(response.data.meals);
         })
         .catch((error) => {
@@ -40,7 +67,13 @@ function App() {
     }
   }, [selectedCategory]);
 
+<<<<<<< HEAD
   useEffect(() => {
+=======
+
+useEffect(() => {
+    // Search meals by name
+>>>>>>> 32c52e53c4cde5a51512ad553748bc9d155fdc8e
     if (searchedMeal) {
       axios
         .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchedMeal}`)
@@ -53,7 +86,7 @@ function App() {
     }
   }, [searchedMeal]);
 
-  const instructionsRef = useRef(null);
+const instructionsRef = useRef(null);
 
   const handleMealClick = (meal) => {
     axios
@@ -79,6 +112,7 @@ function App() {
   };
 
   return (
+<<<<<<< HEAD
     <Router>
       <div className="App">
         <h1>E-RECIPE</h1>
@@ -113,6 +147,21 @@ function App() {
         </Routes>
       </div>
     </Router>
+=======
+    <div className="App">
+      <h1>E-RECIPE</h1>
+    
+      <NavBar/>
+      <SearchBar searchedMeal={searchedMeal} setSearchedMeal={setSearchedMeal}  />
+      <Category setSelectedCategory={setSelectedCategory} categories={categories} handleMealClick={handleMealClick}/>
+      <FilterMeal meals={meals} handleMealClick={handleMealClick}/>
+      <div ref={instructionsRef}>
+        <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
+      </div> 
+      <AboutUs />
+      <ContactUs />
+    </div>
+>>>>>>> 32c52e53c4cde5a51512ad553748bc9d155fdc8e
   );
 
   function FeedbackRoutes() {
