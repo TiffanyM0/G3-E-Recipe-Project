@@ -8,7 +8,6 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Reviews from "./components/Reviews";
 
-
 function App() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");

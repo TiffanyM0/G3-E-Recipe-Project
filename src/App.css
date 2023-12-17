@@ -1,14 +1,15 @@
 .App {
   text-align: center;
-  overflow-x: auto; 
+  overflow-x: hidden; 
   white-space: nowrap;
   scroll-behavior: smooth;
   background-image: url("./images/pandk.jpg");
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Make the background image fixed */
+  background-attachment: fixed; 
   color: #211c1c;
   font-size: large;
+  height: 100vh;
 }
 
 .category {
@@ -19,7 +20,6 @@
 
 .category button {
   margin: 1px; 
-  background-color: rgb(201, 211, 202);
   border: none;
   border-radius: 25px;
 }
@@ -45,7 +45,7 @@
 }
 
 .meal-item p {
-  max-height: 60px; /* Set a maximum height for the text container */
+  max-height: 60px; 
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -55,6 +55,9 @@
 
 .list {
   list-style: none;
+  width: 40%;
+  margin-left: 45%;
+  text-align: left;
 }
 
 .instruction-p{
@@ -76,9 +79,11 @@ img {
   height: 30%;
 }
 
-/* .recipe{
-  display: flex;
-  background-color: plum;
-  padding: 10px;
-  border-radius: 15px;
-} */
+.meal-item p {
+  max-height: 60px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  margin-top: 5px;
+}
