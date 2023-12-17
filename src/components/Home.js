@@ -25,3 +25,14 @@ function Home({
           searchedMeal={searchedMeal}
           setSearchedMeal={setSearchedMeal}
         />
+        <Category
+        setSelectedCategory={setSelectedCategory}
+        categories={categories}
+      />
+      <FilterMeal meals={meals} handleMealClick={handleMealClick} setMeal={setMeal}/>
+      <div ref={instructionsRef}>
+        <SelectMeal
+          handleCloseDetails={handleCloseDetails}
+          selectedMeal={selectedMeal}
+        />
+      </div>
