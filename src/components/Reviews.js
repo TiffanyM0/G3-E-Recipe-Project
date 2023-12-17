@@ -7,6 +7,7 @@ function Reviews({ onSubmitFeedback }) {
   const handleFeedbackChange = (event) => {
     setFeedbackText(event.target.value);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -25,23 +26,31 @@ function Reviews({ onSubmitFeedback }) {
         console.error("Error posting feedback:", error);
       });
   };
+
   return (
+    <>
     <div className="feedback-form">
-      <h2>Feedback</h2>
+      <h2>Customer Review:</h2>
+      <p>
+        Please assist the E-Recipe team to include more recipes by giving us
+        recipe suggestions and where we can improve on the site design. Any
+        feedback is welcome.
+      </p>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="feedback">Feedback:</label>
           <textarea
             id="feedback"
             value={feedbackText}
             onChange={handleFeedbackChange}
-            placeholder="How was your experience using the E-Recipe site..."
+            placeholder="Kindly type your feedback here..."
             rows={4}
           />
-            </div>
+        </div>
         <button type="submit">Submit</button>
       </form>
     </div>
+    </>
   );
 }
+
 export default Reviews;
