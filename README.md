@@ -2,6 +2,11 @@
 
 Welcome to the E-Recipe React app! This project is a virtual kitchen where the joy of cooking meets the essence of deliciousness. Whether you're an experienced chef or a home cook, our diverse collection of recipes is designed to cater to every dish and skill level.
 
+## API Information
+
+This project relies on the [MealDB API](https://www.themealdb.com/api.php) for fetching recipes. To use the API, you'll need to sign up for an API key [here](https://www.themealdb.com/api-key.php).
+
+
 ## Project Overview
 
 This project is built using Create React App and is structured into several components:
@@ -27,6 +32,16 @@ To run the app locally, follow these steps:
 3. Run `npm install` to install dependencies.
 4. Run `npm start` to start the development server.
 5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+
+
+## Technologies Used
+
+- React.js (React App)
+- Axios (for API requests)
+- React Router (for navigation)
+- Html
+- CSS
+- JavaScript
 
 ## Components Overview
 
