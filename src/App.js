@@ -57,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <h1>E-RECIPE</h1>
-      <Category setSelectedCategory={setSelectedCategory} categories={categories} handleMealClick={handleMealClick}/>
+      <Category setSelectedCategory={setSelectedCategory} categories={categories} handleMealClick={handleMealClick} handleCloseDetails={handleCloseDetails}/>
       <FilterMeal meals={meals} handleMealClick={handleMealClick}/>
       <div ref={instructionsRef}>
         <SelectMeal handleCloseDetails={handleCloseDetails} selectedMeal={selectedMeal} />
