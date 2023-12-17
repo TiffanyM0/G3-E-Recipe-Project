@@ -14,7 +14,7 @@ function Reviews({ onSubmitFeedback }) {
 
     // Make a POST request to the server to save the feedback
     axios
-      .post("http://localhost:3000/feedbacks", { text: feedbackText })
+      .post("http://localhost:3000/feedbackData", { text: feedbackText })
       .then((response) => {
         console.log("Feedback successfully posted:", response.data);
         setFeedbackText("");
