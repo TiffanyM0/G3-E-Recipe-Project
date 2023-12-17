@@ -55,10 +55,16 @@
 
 .list {
   list-style: none;
-  color: #211c1c;
   width: 40%;
   margin-left: 45%;
   text-align: left;
+}
+
+.instruction-p{
+  max-width: 100%; /* Ensures the container does not exceed the viewport width */
+  margin: 0 0; /* Centers the container horizontally */
+  padding: 20px; /* Add padding as needed */
+  overflow-x: hidden;
 }
 
 img {

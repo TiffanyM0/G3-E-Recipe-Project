@@ -8,8 +8,6 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Reviews from "./components/Reviews";
 
-
-
 function App() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -23,7 +21,6 @@ function App() {
     axios
       .get("https://www.themealdb.com/api/json/v1/1/categories.php")
       .then((response) => {
-
         setCategories(response.data.categories);
       })
       .catch((error) => {
@@ -36,7 +33,6 @@ function App() {
       axios
         .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
         .then((response) => {
-
           setMeals(response.data.meals);
         })
         .catch((error) => {
@@ -118,7 +114,6 @@ const instructionsRef = useRef(null);
         </Routes>
       </div>
     </Router>
-
   );
 
   function FeedbackRoutes() {
