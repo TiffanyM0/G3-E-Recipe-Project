@@ -1,22 +1,17 @@
-// Import required modules
-const express = require('express');
-const dotenv = require('dotenv');
+const jsonServer = require("json-server");
+const cors = require("cors");
+const path = require("path");
+const server = jsonServer.create();
+const router = jsonServer.router(path.join(__dirname, "db", "db.json"));
+const middlewares = jsonServer.defaults();
 
-// Load environment variables from .env file
-dotenv.config();
+server.use(cors());
+server.use(jsonServer.bodyParser);
+server.use(middlewares);
+server.use(router);
 
-// Create an Express application
-const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Define the port, defaulting to 3000 if not specified
-const port = process.env.PORT || 3000;
-
-// Define a route that responds with a message
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+server.listen(PORT, () => {
+  console.log(`JSON Server is running on http://localhost:${PORT}`);
 });
