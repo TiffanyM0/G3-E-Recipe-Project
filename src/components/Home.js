@@ -36,3 +36,9 @@ function Home({
           selectedMeal={selectedMeal}
         />
       </div>
+      <h4>© Website created by Tiffany, Kevin, Peter, and Frank.</h4>
+    </div>
+  );
+}
+
+export default Home;
