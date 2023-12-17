@@ -8,7 +8,7 @@ export default function Category({ setSelectedCategory, categories, handleMealCl
 
   return (
     <div>
-      <h2>Meal Categories</h2>
+      <h2>Category</h2>
       <div className="category">
         {categories.map(category => (
           <div key={category.strCategory}>
