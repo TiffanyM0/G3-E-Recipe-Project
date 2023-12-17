@@ -8,8 +8,11 @@ export default function SearchBar({ setSearchedMeal, searchedMeal }) {
             value={searchedMeal}     
             onChange={(e) => setSearchedMeal(e.target.value)}   
             placeholder="Enter meal name"
+            className="search-input"
         />
-        <button onClick={() => setSearchedMeal('')}>Search</button>
+        <button 
+            onClick={() => setSearchedMeal('')}
+            className="searchBtn" >Search</button>
     </div>
     )
 }
