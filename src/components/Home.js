@@ -17,3 +17,11 @@ function Home({
     setMeal,
     instructionsRef,
   }) 
+
+  {
+    return (
+      <div>
+        <SearchBar
+          searchedMeal={searchedMeal}
+          setSearchedMeal={setSearchedMeal}
+        />
