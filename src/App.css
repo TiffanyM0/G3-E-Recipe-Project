@@ -58,7 +58,6 @@
 }
 
 .instruction-p{
-  color: blue;
   max-width: 100%; /* Ensures the container does not exceed the viewport width */
   margin: 0 0; /* Centers the container horizontally */
   padding: 20px; /* Add padding as needed */
