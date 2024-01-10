@@ -3,7 +3,7 @@
   overflow-x: hidden; /* Hide horizontal overflow */
   overflow-y: auto; /* Add vertical scroll if needed */
   scroll-behavior: smooth;
-  background-image: url("./images/choppingbrd.jpeg");
+  background-image: url("./images/foodie.jpg");
   background-size: cover; /* Ensure the entire background image is visible without distortion */
   background-repeat: no-repeat;
   background-attachment: fixed; /* Make the background image fixed */
