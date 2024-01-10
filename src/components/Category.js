@@ -10,11 +10,11 @@ const Category = forwardRef(({ setSelectedCategory, categories }, ref) => {
 
   return (
     <div>
-      <h2>Meal Categories</h2>
+      <h2 className="category-name">CHOOSE YOUR INGREDIENT</h2>
       <div className="category">
         {categories.map(category => (
-          <div key={category.strCategory}>
-            <button onClick={() => handleClick(category.strCategory)}>
+          <div className="foodies" key={category.strCategory}>
+            <button className="buttin" onClick={() => handleClick(category.strCategory)}>
               <img src={category.strCategoryThumb} alt={category.strCategory} />
               {category.strCategory}
             </button>
